@@ -1,12 +1,15 @@
 {% extends 'tweets/base.html' %}
-
-
 {% block title %}Bem Vindo {% endblock %}
 
 {% block content %}
-    Entao vamos nessa !!
+<div class="row text-center">
+    <div class="col">
+        <h1>Entao vamos nessa !!</h1>
+    </div>
+</div>
+    
 
-<div id="tweets">
+<div class="row" id="tweets">
     Tweet me
 </div>
 
@@ -20,9 +23,16 @@
     const url = "/tweets"
     const responseType = "json"
 
+    function  handleDidLike(tweet_id, currentCount){
+        console.log(tweet_id, currentCount)
+    }
+
+    function likeButton(tweet){
+        return `<button class='btn btn-primary' onClick=handleDidLike(${tweet.id}, ${tweet.likes})>${tweet.likes}Like</div>`
+    }
 
     function formatTweetElement(tweet){
-        var formatTweet = `<div class="mb-4 tweet" id=tweet-${tweet.id}> <p>${tweet.content}</p></div>`
+        var formatTweet = `<div class="col-12 col-md-10 mx-auto rounded border py-3 mb-4 tweet" id=tweet-${tweet.id}> <p>${tweet.content} ${likeButton(tweet)} </p></div>`
         return formatTweet
     }
 
