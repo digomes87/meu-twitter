@@ -1,0 +1,35 @@
+{% extends 'tweets/base.html' %}
+
+
+{% block title %}Bem Vindo {% endblock %}
+
+{% block content %}
+    Entao vamos nessa !!
+
+<div id="tweets">
+    Tweet me
+</div>
+
+
+<script>
+    const tweetsElements = document.getElementById("tweets")
+    tweetsElements.innerHTML = 'Loading ...'
+
+    const xhr = new XMLHttpRequest() //
+    const method = 'GET' //POST
+    const url = "/tweets"
+    const responseType = "json"
+
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function(){
+        console.log(xhr.response)
+        const serverResponse = xhr.response
+        var listItems = serverResponse.response
+        console.log(listItems)
+    }
+
+    xhr.send()
+
+</script>    
+{% endblock %}
