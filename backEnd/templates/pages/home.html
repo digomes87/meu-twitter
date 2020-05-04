@@ -26,7 +26,17 @@
         console.log(xhr.response)
         const serverResponse = xhr.response
         var listItems = serverResponse.response
-        console.log(listItems)
+        var tweetFinal = ""
+        var i
+
+        for(i=0; i<listItems.length; i++){
+            console.log(listItems[i])
+            var currentItem = `<h1> ${listItems[i].id}</h1> <p>${listItems[i].content}</p>`
+            // "<h1>" + listItems[i].id + "</h1>" + "p"+ listItems[i].content +"</p>"
+            tweetFinal += currentItem
+        }
+
+        tweetsElements.innerHTML = tweetFinal
     }
 
     xhr.send()
