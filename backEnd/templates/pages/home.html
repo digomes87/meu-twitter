@@ -28,11 +28,11 @@
     }
 
     function likeButton(tweet){
-        return `<button class='btn btn-primary' onClick=handleDidLike(${tweet.id}, ${tweet.likes})>${tweet.likes}Like</div>`
+        return `<button class='btn btn-primary' onClick=handleDidLike(${tweet.id},${tweet.likes})>${tweet.likes}Like</div>`
     }
 
     function formatTweetElement(tweet){
-        var formatTweet = `<div class="col-12 col-md-10 mx-auto rounded border py-3 mb-4 tweet" id=tweet-${tweet.id}> <p>${tweet.content} ${likeButton(tweet)} </p></div>`
+        var formatTweet = `<div class="col-12 col-md-10 mx-auto rounded border py-3 mb-4 tweet" id=tweet-${tweet.id}><p>${tweet.content}${likeButton(tweet)}</p></div>`
         return formatTweet
     }
 
