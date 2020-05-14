@@ -31,7 +31,12 @@
     
     function handleFormDidSubmit(event){
         event.preventDefault()
-        console.log(event)
+        const myForm = event.target
+        const myFormData = new FormData(myForm)
+        for(var myItem of myFormData.entries()){
+            console.log(myItem.getAttribute("action"))
+        }
+        //console.log(event)
     }
     const tweetCreateFormEl = document.getElementById("tweet-create-form")
     tweetCreateFormEl.addEventListener("submit", handleFormDidSubmit)
